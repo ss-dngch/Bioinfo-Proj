@@ -1,0 +1,39 @@
+def get_sequence():
+    dna = input("Enter a DNA sequence: ").upper()
+    return dna
+
+def count_nucleotides(dna):
+    counts = {
+        'A': dna.count('A'),
+        'T': dna.count('T'),
+        'G': dna.count('G'),
+        'C': dna.count('C')
+    }
+    return counts
+
+def calculate_gc_content(dna):
+    gc_count = dna.count('G') + dna.count('C')
+    return (gc_count / len(dna)) * 100
+
+def transcribe_to_rna(dna):
+    return dna.replace('T', 'U')
+
+def main():
+    dna = get_sequence()
+    print("\nDNA Sequence Analysis Results:")
+    
+    # Count nucleotides
+    counts = count_nucleotides(dna)
+    for nucleotide, count in counts.items():
+        print(f"{nucleotide}: {count}")
+    
+    # GC Content
+    gc_content = calculate_gc_content(dna)
+    print(f"GC Content: {gc_content:.2f}%")
+    
+    # Transcribe to RNA
+    rna = transcribe_to_rna(dna)
+    print(f"Transcribed RNA: {rna}")
+
+if __name__ == "__main__":
+    main()
